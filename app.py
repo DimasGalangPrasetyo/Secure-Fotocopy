@@ -1,5 +1,5 @@
 from flask import (
-    Flask, request, jsonify, render_template,
+    Flask, request, render_template,
     redirect, session, send_file
 )
 import sqlite3
