@@ -36,7 +36,10 @@ def upload():
     note = request.form.get("note", "")
     payment = request.form["payment"]
     file = request.files["file"]
-    photo_size = request.form.get("photo_size", None)
+    photo_size = None
+    if service_option == "cetak_foto":
+        photo_size = request.form.get("photo_size")
+
 
 
     data = file.read()
