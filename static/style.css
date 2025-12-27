@@ -1,0 +1,92 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(120deg, #eef2f7, #f9fbfd);
+}
+
+/* CONTAINER */
+.container {
+    width: 420px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* FORM */
+label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+input, select, textarea {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button, .btn {
+    background: #007bff;
+    border-radius: 6px;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+button:hover, .btn:hover {
+    background: #0056b3;
+}
+
+/* DASHBOARD */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #f1f3f5;
+}
+
+.action-btn {
+    background: #28a745;
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.logout-btn {
+    background: #dc3545;
+    padding: 8px 15px;
+    border-radius: 6px;
+    color: white;
+    float: right;
+}
+
+/* SUCCESS */
+.success-box {
+    width: 360px;
+    margin: 120px auto;
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.checkmark {
+    font-size: 60px;
+    color: #28a745;
+}

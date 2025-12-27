@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Dokumen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Upload Dokumen</h2>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Pilih File</label>
+        <input type="file" name="file" required>
+
+        <label>Layanan</label>
+        <select name="service" id="service" onchange="toggleSize()">
+            <option value="print">Print</option>
+            <option value="fotocopy">Fotocopy</option>
+            <option value="cetak_foto">Cetak Foto</option>
+        </select>
+
+        <div id="photoSize" style="display:none;">
+            <label>Ukuran Foto</label>
+            <select name="photo_size">
+                <option value="2x3">2x3</option>
+                <option value="3x4">3x4</option>
+                <option value="4x6">4x6</option>
+            </select>
+        </div>
+
+        <label>Metode Pembayaran</label>
+        <select name="payment">
+            <option value="tunai">Tunai</option>
+            <option value="dana">DANA</option>
+            <option value="gopay">GoPay</option>
+        </select>
+
+        <label>Catatan (opsional)</label>
+        <textarea name="note"></textarea>
+
+        <button type="submit">Kirim</button>
+    </form>
+</div>
+
+<script>
+function toggleSize() {
+    const service = document.getElementById("service").value;
+    document.getElementById("photoSize").style.display =
+        service === "cetak_foto" ? "block" : "none";
+}
+</script>
+</body>
+</html>

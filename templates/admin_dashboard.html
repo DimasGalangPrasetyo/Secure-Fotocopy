@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container-wide">
+
+    <div class="header">
+        <h2>Dashboard Admin</h2>
+        <a href="/admin/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <h3>Belum Diunduh</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Layanan</th>
+                <th>Ukuran Foto</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in pending %}
+            <tr>
+                <td>{{ o[1] }}</td>
+                <td>{{ o[5] }}</td>
+                <td>{{ o[6] or "-" }}</td>
+                <td>
+                    <a href="/admin/download/{{ o[0] }}" class="action-btn">
+                        Unduh
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Sudah Diunduh</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Layanan</th>
+                <th>Ukuran Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in downloaded %}
+            <tr>
+                <td>{{ o[1] }}</td>
+                <td>{{ o[5] }}</td>
+                <td>{{ o[6] or "-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
