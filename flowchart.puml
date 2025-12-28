@@ -1,0 +1,76 @@
+@startuml
+title Flowchart Sistem Hybrid Cryptography
+
+start
+
+if (Aktor?) then (User)
+
+    :User mengunggah file;
+    :Server membaca file (binary);
+
+    :Generate AES Key;
+    :Generate IV;
+
+    :Enkripsi file menggunakan AES;
+    note right
+      Data asli → ciphertext
+    end note
+
+    :Simpan file terenkripsi
+    ke folder uploads_encrypted;
+
+    :Enkripsi AES Key
+    dengan RSA Public Key;
+    note right
+      AES Key diamankan
+      menggunakan RSA
+    end note
+
+    :Simpan metadata
+    (username, layanan,
+     encrypted key, IV)
+    ke database;
+
+    :Tampilkan halaman sukses;
+    stop
+
+else (Admin)
+
+    :Admin login;
+    :Verifikasi password
+    menggunakan SHA-256 + salt;
+
+    if (Login valid?) then (Ya)
+
+        :Admin melihat daftar pesanan;
+        :Pilih file untuk diunduh;
+
+        :Ambil encrypted AES key
+        dan IV dari database;
+
+        :Dekripsi AES Key
+        dengan RSA Private Key;
+        note right
+          Hanya admin
+          memiliki private key
+        end note
+
+        :Baca file terenkripsi (.enc);
+
+        :Dekripsi file
+        menggunakan AES Key + IV;
+
+        :File asli berhasil didapatkan;
+        :Kirim file ke admin;
+
+        :Update status pesanan;
+
+        stop
+
+    else (Tidak)
+        stop
+    endif
+
+endif
+
+@enduml
