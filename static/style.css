@@ -90,3 +90,108 @@ th {
     font-size: 60px;
     color: #28a745;
 }
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    .success-box {
+        width: 80%;
+        margin: 80px auto;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+/* Mobile (Android & iPhone) */
+@media (max-width: 600px) {
+
+    body {
+        background: #eef2f7;
+    }
+
+    h2, h3 {
+        text-align: center;
+    }
+
+    .container {
+        width: 95%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    input, select, textarea {
+        font-size: 16px; /* cegah zoom otomatis iOS */
+        padding: 10px;
+    }
+
+    button, .btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    /* Dashboard admin */
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logout-btn {
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    td {
+        text-align: left;
+        padding: 8px 10px;
+        border: none;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 4px;
+        color: #555;
+    }
+
+    .action-btn {
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* Success page */
+    .success-box {
+        width: 90%;
+        padding: 30px;
+        margin: 60px auto;
+    }
+
+    .checkmark {
+        font-size: 48px;
+    }
+}
