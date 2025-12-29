@@ -13,37 +13,52 @@
         <a href="/admin/logout" class="logout-btn">Logout</a>
     </div>
 
-    <h3>Belum Diunduh</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Layanan</th>
-                <th>Ukuran Foto</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for o in pending %}
-            <tr>
-                <td>{{ o[1] }}</td>
-                <td>{{ o[5] }}</td>
-                <td>
-                    {% if o[5] == "cetak_foto" and o[6] %}
-                        {{ o[6] }}
-                    {% else %}
-                        -
-                    {% endif %}
-                </td>
-                <td>
-                    <a href="/admin/download/{{ o[0] }}" class="action-btn">
+    <h3>Belum Diproses</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Layanan</th>
+            <th>Ukuran Foto</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for o in pending %}
+        {% set status = o[9] %}
+        <tr>
+            <td>{{ o[1] }}</td>
+            <td>{{ o[5] }}</td>
+            <td>
+                {% if o[5] == "cetak_foto" and o[6] %}
+                    {{ o[6] }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+            <td class="action-group">
+                {% if status == 0 %}
+                    <a href="/admin/decrypt/{{ o[0] }}" class="action-btn">
+                        Deskripsi
+                    </a>
+                    <span class="action-btn disabled">
+                        Unduh
+                    </span>
+                {% elif status == 1 %}
+                    <span class="action-btn disabled">
+                        Deskripsi
+                    </span>
+                    <a href="/admin/download/{{ o[0] }}" class="action-btn download">
                         Unduh
                     </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% endif %}
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 
     <h3>Sudah Diunduh</h3>
     <table>
