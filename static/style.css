@@ -39,6 +39,19 @@ button:hover, .btn:hover {
 }
 
 /* DASHBOARD */
+
+.container-wide {
+    width: 95%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.action-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -63,9 +76,28 @@ th {
 
 .action-btn {
     background: #28a745;
-    padding: 6px 12px;
-    border-radius: 5px;
+    padding: 6px 14px;
+    border-radius: 6px;
     color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.action-btn.download {
+    background: #007bff;
+}
+
+.action-btn.disabled {
+    background: #adb5bd;
+    color: #fff;
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.action-btn:not(.disabled):hover {
+    filter: brightness(0.9);
 }
 
 .logout-btn {
